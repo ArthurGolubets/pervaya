@@ -1,0 +1,73 @@
+$black: #282828;
+$gray: #5A5A5F;
+$red: #FF2D2D;
+$light-gray: #f5f5f5;
+$primaryFont: 'Manrope', sans-serif;
+
+$colors: (
+  black: $black,
+  gray: $gray,
+  accent: $red
+);
+
+.w{
+  &-fit-content{
+    width: fit-content;
+    width: -moz-fit-content;
+  }
+}
+
+:root{
+  @each $name, $color in $colors {
+    --#{$name}-color: #{$color};
+  }
+
+  --bs-font-sans-serif: #{$primaryFont};
+}
+
+.o{
+  &-contain{
+    object-fit: contain;
+  }
+  &-cover{
+    object-fit: cover;
+  }
+}
+
+@each $name, $color in $colors {
+  .bg-#{$name}{
+    background-color: $color !important;
+  };
+  .text-#{$name}{
+    color: $color !important;
+  };
+
+  .btn{
+    &-#{$name}{
+      background-color: $color;
+      color: #ffffff;
+      border-radius: 1px;
+    }
+
+    &-outline-#{$name}{
+      border: 1px solid $color;
+      color:  $color;
+      border-radius: 1px;
+
+      &:hover{
+        color: #ffffff;
+        background-color: $color;
+      }
+    }
+
+    &-text-#{$name}{
+      color:  $color;
+      border-radius: 1px;
+
+      &:hover{
+        color: #ffffff;
+        background-color: $color;
+      }
+    }
+  }
+}
